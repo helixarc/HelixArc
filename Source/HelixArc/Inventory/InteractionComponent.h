@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "InteractionComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FInteractDelegate, class AHelixArcCharacter*, Player);
+
 USTRUCT(BlueprintType)
 struct FInteractionData
 {
@@ -30,6 +32,12 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Interaction")
 		FText InteractionText = FText::FromString("Default Interaction");
+
+	UPROPERTY(BlueprintAssignable)
+		FInteractDelegate OnInteract;
+
+	UFUNCTION(BlueprintCallable, Category = "Interaction")
+		void Interact(class AHelixArcCharacter* Player);
 
 protected:
 	// Called when the game starts

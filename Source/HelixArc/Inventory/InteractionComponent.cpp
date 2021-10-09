@@ -23,6 +23,11 @@ void UInteractionComponent::BeginPlay()
 	
 }
 
+void UInteractionComponent::Interact(class AHelixArcCharacter* Player)
+{
+	this->OnInteract.Broadcast(Player);
+}
+
 
 // Called every frame
 void UInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)

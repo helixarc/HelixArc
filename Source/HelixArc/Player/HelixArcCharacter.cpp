@@ -3,6 +3,11 @@
 
 #include "HelixArcCharacter.h"
 
+AHelixArcCharacter::AHelixArcCharacter(const FObjectInitializer& ObjectInitializer) : AALSBaseCharacter(ObjectInitializer)
+{
+	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
+}
+
 void AHelixArcCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

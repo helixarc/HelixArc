@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Character/ALSBaseCharacter.h"
 #include <HelixArc/Inventory/InteractionComponent.h>
+#include <HelixArc/Inventory/InventoryComponent.h>
 #include "HelixArcCharacter.generated.h"
 
 /**
@@ -16,6 +17,11 @@ class HELIXARC_API AHelixArcCharacter : public AALSBaseCharacter
 	GENERATED_BODY()
 
 public:
+
+	AHelixArcCharacter(const FObjectInitializer& ObjectInitializer);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Interaction")
+		class UInventoryComponent* InventoryComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
 		FInteractionData ItemInView;
